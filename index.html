@@ -3,12 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
-		
 
 		<!-- Load CSS files -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+		<link rel="stylesheet" href="assets/libraries/bootstrap-4.3.1/css/bootstrap-grid.min.css">
+		<link rel="stylesheet" href="assets/libraries/bootstrap-4.3.1/css/bootstrap-reboot.min.css">
+		<link rel="stylesheet" href="assets/libraries/bootstrap-4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./style.css">
 
 		<title>Pomodoro</title>
 	</head>
@@ -17,13 +18,22 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12">
-					<h1>Hello World</h1>
+				<div class="col-12 clock" style="background-color: red;">
+					<h1 id="timer"> 00:00 </h1>
+				</div>
+
+				<div class="col-12">
+					<div class="row top20">
+						<button id="mainBtn" class="btn btn-success col-xs-12 col-6">
+							Start
+						</button>
+						<button id="resetBtn" class="btn btn-warning col-xs-12 col-6">
+							Reset
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
-
-
 
 
 		<!-- Loading Bootstrap dependencies -->

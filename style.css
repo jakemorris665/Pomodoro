@@ -1,0 +1,41 @@
+body {
+    background-color: #ffffff;
+}
+
+.top10 {
+    margin-top: 10px;
+}
+
+.top15 {
+    margin-top: 15px;
+}
+
+.top20 {
+    margin-top: 20px;
+}
+
+.top25 {
+    margin-top: 25px;
+}
+
+.top30 {
+    margin-top: 30px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.clock {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock h1 {
+    font-size: 45px;
+    color: white;
+    letter-spacing: 10px;
+}
+
