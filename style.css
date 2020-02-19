@@ -31,11 +31,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 4px;
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px #eaeaea;
+    border: 1px solid #ddd
 }
 
 .clock h1 {
     font-size: 45px;
-    color: white;
+    color: rgb(75, 75, 75);
     letter-spacing: 10px;
 }
 
