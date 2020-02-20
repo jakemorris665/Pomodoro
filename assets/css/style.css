@@ -34,6 +34,16 @@ body {
     color: #a8b6c3!important
 }
 
+.menu {
+    position: absolute;
+    top: 15px;
+    align-self: flex-end;
+}
+
+.menuItem {
+    font-size: 12px;
+}
+
 .clock {
     height: 300px;
     display: flex;
