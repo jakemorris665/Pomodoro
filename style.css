@@ -26,6 +26,10 @@ body {
     text-align: center;
 }
 
+.text-right {
+    text-align: right;
+}
+
 .clock {
     height: 300px;
     display: flex;
