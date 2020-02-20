@@ -30,6 +30,10 @@ body {
     text-align: right;
 }
 
+.text-muted-2 {
+    color: #a8b6c3!important
+}
+
 .clock {
     height: 300px;
     display: flex;
