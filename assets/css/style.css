@@ -34,6 +34,10 @@ body {
     color: #a8b6c3!important
 }
 
+.p8 {
+    padding: 8px;
+}
+
 .menu {
     position: absolute;
     top: 15px;
@@ -45,15 +49,18 @@ body {
 }
 
 .clock {
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    height: auto;
+}
+
+.rounded-corners {
     border-radius: 4px;
+}
+
+.shadow {
     background-color: white;
     box-shadow: 1px 1px 9px 4px #eaeaea;
     border: 1px solid #ddd;
-    flex-direction: column;
 }
 
 .clock h1 {
