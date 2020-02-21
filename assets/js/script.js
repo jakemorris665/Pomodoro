@@ -4,14 +4,21 @@ const timer = document.getElementById("timer");
 const interval = 1000;
 let time = 25;
 let duration = moment.duration(time, "minutes");
-
-timer.textContent = "25:00";
+let timerOn = false;
+let intervalId;
 
 const countDown = function(){
-    setInterval(function(){
-    duration.subtract(interval, "milliseconds");
-    timer.textContent = moment(duration.asMilliseconds()).format('mm:ss')
-}, interval)
+    if(timerOn === false && !intervalId){
+        timerOn = true;
+        intervalId = (setInterval(function(){
+        duration.subtract(interval, "milliseconds");
+        timer.textContent = moment(duration.asMilliseconds()).format('mm:ss')
+        }, interval));
+    } else {
+        timerOn = false;
+        clearInterval(intervalId);
+        intervalId = null;
+    }
 }
 
-startBtn.addEventListener('click', countDown)
+startBtn.addEventListener('click', countDown);
