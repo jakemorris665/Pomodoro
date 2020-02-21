@@ -1,7 +1,7 @@
 const startBtn  = document.getElementById("mainBtn");
 const resetBtn  = document.getElementById("resetBtn");
 const timer     = document.getElementById("timer");
-const breakTime = document.getElementById('breakTime').value || 5;
+const breakTime = 5;
 
 const interval   = 1000;
 

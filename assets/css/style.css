@@ -42,6 +42,7 @@ body {
     position: absolute;
     top: 15px;
     align-self: flex-end;
+    z-index: 2;
 }
 
 .menuItem {
