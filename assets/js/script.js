@@ -19,11 +19,13 @@ const countDown = function(){
             duration.subtract(interval, "milliseconds");
             timer.textContent = moment(duration.asMilliseconds()).format('mm:ss')
         }, interval));
+        startBtn.textContent = "Pause";
     } else {
         startBtn.textContent = "Continue";
         timerOn = false;
         clearInterval(intervalId);
         intervalId = null;
+        startBtn.textContent = "Resume";
     }
 }
 
