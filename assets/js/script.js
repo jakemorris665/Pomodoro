@@ -2,7 +2,7 @@ const startBtn  = document.getElementById("mainBtn");
 const resetBtn  = document.getElementById("resetBtn");
 const timer     = document.getElementById("timer");
 const breakTime = 5;
-resetBtn.disabled = false;
+resetBtn.disabled = true;
 
 const interval   = 1000;
 
@@ -13,6 +13,7 @@ let intervalId;
 
 const countDown = function(){
     if(timerOn === false && !intervalId){
+        resetBtn.disabled = false;
         timerOn = true;
         startBtn.textContent = "Pause";
 
@@ -33,6 +34,7 @@ const reset = function(){
     duration = moment.duration(time, "minutes");
     timer.textContent = moment(duration.asMilliseconds()).format('mm:ss')
     startBtn.textContent = "Start";
+    resetBtn.disabled = true;
     timerOn = false;
     intervalId = null;  
 }
