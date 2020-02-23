@@ -1,40 +1,89 @@
 const startBtn  = document.getElementById("mainBtn");
 const resetBtn  = document.getElementById("resetBtn");
 const timer     = document.getElementById("timer");
-const breakTime = 5;
-resetBtn.disabled = false;
-
 const interval   = 1000;
 
-let time = 25;
-let duration = moment.duration(time, "minutes");
-let timerOn = false;
+timer.textContent = "00:12";
+
+let breakTime = .1;
+let workTime = .2;
+let workDuration = moment.duration(workTime, "minutes");
+let breakDuration = moment.duration(breakTime, "minutes");
+let workTimerOn = false;
+let breakTimerOn = false;
 let intervalId;
+let breakId;
+
+resetBtn.disabled = false;
 
 const countDown = function(){
-    if(timerOn === false && !intervalId){
-        timerOn = true;
-        startBtn.textContent = "Pause";
-
-        intervalId = (setInterval(function(){
-            duration.subtract(interval, "milliseconds");
-            timer.textContent = moment(duration.asMilliseconds()).format('mm:ss')
+    
+    if(workTimerOn === false && !intervalId){
+    workTimerOn = true;
+    breakTimerOn = false;
+    startBtn.textContent = "Pause";
+    intervalId = (setInterval(function(){
+        if(workDuration._milliseconds > 0){
+            workDuration.subtract(interval, "milliseconds");
+            timer.textContent = moment(workDuration.asMilliseconds()).format('mm:ss')
+        } else {
+            clearInterval(intervalId);
+            intervalId = null;
+            breakDuration = moment.duration(breakTime, "minutes")
+            breakTimer();
+            }
         }, interval));
     } else {
-        timerOn = false;
+        workTimerOn = false;
         clearInterval(intervalId);
         intervalId = null;
         startBtn.textContent = "Resume";
     }
 }
 
+const breakTimer = function(){
+
+    if(breakTimerOn == false && !breakId){
+        breakTimerOn = true;
+        workTimerOn = false;
+        timer.textContent = "00:06";
+        startBtn.textContent = "Pause";
+        breakId = (setInterval(function(){
+            if(breakDuration._milliseconds > 0){
+                breakDuration.subtract(interval, "milliseconds");
+                timer.textContent = moment(breakDuration.asMilliseconds()).format('mm:ss')
+            } else {
+                clearInterval(breakId);
+                breakId = null;
+                workDuration = moment.duration(workTime, "minutes");
+                countDown();
+            }
+        }, interval));
+    } else {
+        breakTimerOn = false;
+        clearInterval(breakId);
+        breakId = null;
+        startBtn.textContent = "Resume";
+    }
+}
+
 const reset = function(){
     clearInterval(intervalId);
-    duration = moment.duration(time, "minutes");
-    timer.textContent = moment(duration.asMilliseconds()).format('mm:ss')
-    startBtn.textContent = "Start";
-    timerOn = false;
-    intervalId = null;  
+    clearInterval(breakId);
+
+    if(breakTimerOn) {
+        breakDuration = moment.duration(breakTime, "minutes");
+        timer.textContent = moment(breakDuration.asMilliseconds()).format('mm:ss')
+        breakTimerOn = false;
+        breakId = null;
+        startBtn.textContent = "Start";
+    } else if(workTimerOn) {
+        workDuration = moment.duration(workTime, "minutes");
+        timer.textContent = moment(workDuration.asMilliseconds()).format('mm:ss')
+        workTimerOn = false;
+        intervalId = null;
+        startBtn.textContent = "Start";
+    }
 }
 
 startBtn.addEventListener('click', countDown);
