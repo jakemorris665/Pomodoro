@@ -24,8 +24,8 @@
 				<div class="col-12">
 					<div class="form-group">
 						<label for="breakTime">Break duration:</label>
-						<select class="form-control" id="breakTime">
-							<option disabled="true" selected>Break time</option>
+						<select class="form-control" id="breakTime" onChange="updateText()">
+							<option disabled="true" value="5" selected>Break time</option>
 							<option value="5">5 (Default) </option>
 							<option value="10">10</option>
 							<option value="15">15</option>
@@ -51,7 +51,7 @@
 							<div class="text-muted">
 								<p>
 									<span id="infoTxt">Block #</span>
-									<span id="taskNbr">1</span>
+									<span id="taskNbr"></span>
 								</p>
 							</div>
 						</div>
@@ -59,7 +59,7 @@
 
 					<div class="row top10">
 						<div class="col-12">
-							<h1 id="timer"> 25:00 </h1>
+							<h1 id="timer"></h1>
 						</div>
 					</div>
 
@@ -68,7 +68,7 @@
 							<div class="text-muted-2">
 								<p>
 									<span>Next block:</span>
-									<span id="nextBlock">15 minute break</span>
+									<span id="nextBlock"></span>
 								</p>
 							</div>
 						</div>
@@ -78,7 +78,7 @@
 				<div class="col-12">
 					<div class="row top20">
 						<div class="col-12 text-center">
-							<button id="mainBtn" class="btn btn-success top10">
+							<button id="mainBtn" value="start" class="btn btn-success top10">
 								Start
 							</button>
 							<button id="resetBtn" class="btn btn-warning top10" disabled="true">
@@ -100,6 +100,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 		
 		<!-- Loading app logic -->
-		<script src="./assets/js/script.js"></script>
+		<script src="./assets/js/script2.js"></script>
 	</body>
 </html>
