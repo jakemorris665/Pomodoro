@@ -20,20 +20,20 @@ resetBtn.disabled = false;
 const countDown = function(){
     
     if(workTimerOn === false && !intervalId){
-    workTimerOn = true;
-    breakTimerOn = false;
-    startBtn.textContent = "Pause";
-    intervalId = (setInterval(function(){
-        if(workDuration._milliseconds > 0){
-            workDuration.subtract(interval, "milliseconds");
-            timer.textContent = moment(workDuration.asMilliseconds()).format('mm:ss')
-        } else {
-            clearInterval(intervalId);
-            intervalId = null;
-            breakDuration = moment.duration(breakTime, "minutes")
-            breakTimer();
-            }
-        }, interval));
+        workTimerOn = true;
+        breakTimerOn = false;
+        startBtn.textContent = "Pause";
+        intervalId = (setInterval(function(){
+            if(workDuration._milliseconds > 0){
+                workDuration.subtract(interval, "milliseconds");
+                timer.textContent = moment(workDuration.asMilliseconds()).format('mm:ss')
+            } else {
+                clearInterval(intervalId);
+                intervalId = null;
+                breakDuration = moment.duration(breakTime, "minutes")
+                breakTimer();
+                }
+            }, interval));
     } else {
         workTimerOn = false;
         clearInterval(intervalId);
