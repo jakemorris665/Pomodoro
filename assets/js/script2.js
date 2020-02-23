@@ -78,7 +78,7 @@ const prepareNextBlock = function(isStarting, resume) {
 }
 
 const getBreakTime = function(asNumber) {
-    const time = parseInt(breakTime.options[breakTime.selectedIndex].value);
+    const time = parseInt(breakTime.value);
 
     if(asNumber) return time
     return moment(moment.duration(time, "minutes").asMilliseconds()).format('mm:ss');
