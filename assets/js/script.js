@@ -2,9 +2,9 @@ const startBtn  = document.getElementById("mainBtn");
 const resetBtn  = document.getElementById("resetBtn");
 const timer     = document.getElementById("timer");
 const breakOptn = document.getElementById("breakTime");
-const taskNbr = document.getElementById("taskNbr");
-const next = document.getElementById("nextBlock");
-const interval   = 1000;
+const taskNbr   = document.getElementById("taskNbr");
+const next      = document.getElementById("nextBlock");
+const interval  = 1000;
 const sound = new Audio("assets/media/bell.wav");
 
 let breakTime = 5;
@@ -19,6 +19,7 @@ resetBtn.disabled = false;
 
 const breakValue = function(){
     breakTime = Number(breakOptn.value);
+    next.textContent = `${breakTime} minute break`
 }
 
 const buttonPress = function(){
@@ -45,7 +46,7 @@ const countDown = function(){
             taskNbr.textContent = `${++taskNum}`;
             clearInterval(intervalId);
             intervalId = null;
-            if(working == true){
+            if(working){
                 next.textContent =  `${workTime} minutes of work`
                 working = false;
                 breaking = true;
