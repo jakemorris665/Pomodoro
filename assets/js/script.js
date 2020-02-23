@@ -5,6 +5,7 @@ const breakOptn = document.getElementById("breakTime");
 const taskNbr = document.getElementById("taskNbr");
 const next = document.getElementById("nextBlock");
 const interval   = 1000;
+const sound = new Audio("assets/media/bell.wav");
 
 let breakTime = 5;
 let workTime = 25;
@@ -40,19 +41,20 @@ const countDown = function(){
             duration.subtract(interval, "milliseconds");
             timer.textContent = moment(duration.asMilliseconds()).format('mm:ss')
         } else {
+            sound.play();
             taskNbr.textContent = `${++taskNum}`;
             clearInterval(intervalId);
             intervalId = null;
             if(working == true){
-                next.textContent = "25 minutes of work"
+                next.textContent =  `${workTime} minutes of work`
                 working = false;
                 breaking = true;
                 duration.add(breakTime, "m");
             } else {
-                next.textContent = "15 minute break"
+                next.textContent = `${breakTime} minute break`
                 working = true;
                 breaking = false;
-                duration.add(25, "m");
+                duration.add(workTime, "m");
             }
             countDown();
         }
@@ -77,7 +79,7 @@ const reset = function(){
     
     if(working == true){
         duration._milliseconds = 0;
-        duration.add(25, "m");
+        duration.add(workTime, "m");
     } else {
         duration._milliseconds = 0;
         duration.add(breakTime, "m");
