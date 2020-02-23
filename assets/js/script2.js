@@ -98,7 +98,6 @@ const updateTaskNbr = function(reset) {
     } else {
         taskNbr.textContent = isNaN(parseInt(taskNbr.textContent)) ? 1 : parseInt(taskNbr.textContent) + 1;
     }
-    
 }
 
 const stopTimer = function() {
@@ -114,7 +113,6 @@ const init = function(){
     timerTxt.textContent = moment(moment.duration(workTime, "minutes").asMilliseconds()).format('mm:ss');
     startBtn.value = 'start';
     startBtn.textContent = "Start";
-    
 
     updateTaskNbr(true);
     updateText();
