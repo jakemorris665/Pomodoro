@@ -70,3 +70,13 @@ body {
     letter-spacing: 10px;
 }
 
+.muteContainer {
+    display: flex;
+    float: right;
+    padding-top: 12px;
+}
+
+.muteBtn {
+    background-color: transparent;
+    border: none;
+}

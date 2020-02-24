@@ -2,8 +2,11 @@ const startBtn  = document.getElementById("mainBtn");
 const resetBtn  = document.getElementById("resetBtn");
 const timer     = document.getElementById("timer");
 const breakOptn = document.getElementById("breakTime");
+const workOptn  = document.getElementById("workTime");
 const taskNbr   = document.getElementById("taskNbr");
 const next      = document.getElementById("nextBlock");
+const mute      = document.getElementById("mute");
+const muteIcon  = document.getElementById("muteIcon")
 const interval  = 1000;
 const sound = new Audio("assets/media/bell.wav");
 
@@ -15,11 +18,36 @@ let intervalId;
 let working = true;
 let breaking = false;
 
+sound.volume = .5;
 resetBtn.disabled = false;
 
+const volume = function(){
+
+    if(mute.value == "on"){
+        mute.value = "off";
+        sound.volume = 0;
+        muteIcon.src = "assets/media/mute.png";
+    } else if(mute.value == "off") {
+        mute.value = "on";
+        sound.volume = .5;
+        muteIcon.src = "assets/media/unmute.png";
+    }
+}
+
+const workValue = function(){
+
+    workTime = Number(workOptn.value);
+    if(breaking){
+        next.textContent = `${workTime} minutes of work`;
+    }
+}
+
 const breakValue = function(){
+
     breakTime = Number(breakOptn.value);
-    next.textContent = `${breakTime} minute break`
+    if(working){
+        next.textContent = `${breakTime} minute break`;
+    }
 }
 
 const buttonPress = function(){
@@ -92,3 +120,5 @@ const reset = function(){
 startBtn.addEventListener('click', buttonPress);
 resetBtn.addEventListener('click', reset);
 breakOptn.addEventListener('change', breakValue);
+workOptn.addEventListener('change', workValue);
+mute.addEventListener('click', volume);
