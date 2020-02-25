@@ -23,6 +23,18 @@
 				</div>
 				<div class="col-12">
 					<div class="form-group">
+						<label for="workTime">Work duration:</label>
+						<select class="form-control" id="workTime">
+							<option disabled="true" selected>Work time</option>
+							<option value="25">25 (Default)</option>
+							<option value="30">30</option>
+							<option value="45">45</option>
+							<option value="55">55</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="form-group">
 						<label for="breakTime">Break duration:</label>
 						<select class="form-control" id="breakTime">
 							<option disabled="true" selected>Break time</option>
@@ -37,6 +49,10 @@
 			</div>
 			<div class="row top10">
 				<div class="col-12 clock rounded-corners shadow">
+
+					<div class="muteContainer">
+						<button id="mute" value="on" class="muteBtn" type="image"><img id="muteIcon" src="assets/media/unmute.png"></button>
+					</div>
 
 					<div class="row menu">
 						<div class="col-12">
@@ -68,7 +84,7 @@
 							<div class="text-muted-2">
 								<p>
 									<span>Next block:</span>
-									<span id="nextBlock">15 minute break</span>
+									<span id="nextBlock">5 minute break</span>
 								</p>
 							</div>
 						</div>
@@ -78,7 +94,7 @@
 				<div class="col-12">
 					<div class="row top20">
 						<div class="col-12 text-center">
-							<button id="mainBtn" class="btn btn-success top10">
+							<button id="mainBtn" class="btn btn-success top10" value="false">
 								Start
 							</button>
 							<button id="resetBtn" class="btn btn-warning top10" disabled="true">
